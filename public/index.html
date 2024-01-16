@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/styles.css">
+  <title>Express Chat App</title>
+</head>
+<body>
+<div class="centered-form">
+  <div class="centered-form__box">
+    <h1>Join</h1>
+    <form id="join-form">
+      <label>Display name</label>
+      <input type="text" name="username" placeholder="Display name" required>
+
+      <label>Room</label>
+      <input type="text" id="room-input" name="room" placeholder="Room name" autocomplete="off" >
+      <select id="room-select" name="room">
+      </select>
+
+      <button type="button" id="create-room-button">Create new room</button>
+
+      <button>Join</button>
+    </form>
+  </div>
+</div>
+<script id="room-options-template" type="text/html">
+  <option value="">Select room</option>
+  {{#rooms}}
+  <option value="{{.}}">{{.}}</option>
+  {{/rooms}}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.2.1/mustache.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.2/qs.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
+</body>
+</html>
